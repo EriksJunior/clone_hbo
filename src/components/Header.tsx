@@ -1,16 +1,25 @@
 
 import React from "react";
+import { Feather } from '@expo/vector-icons';
+import { TouchableOpacity } from "react-native"
 
-import { Container, Content } from "./styles";
-interface IHeader {
-  backgroundColor?: string
-  contentRow?: string
-}
+import { Container, Content, TextHeader } from "./styles";
 
-export default function Header({ backgroundColor, contentRow }: IHeader) {
+export default function Header() {
   return (
-    <Container backgroundColor={backgroundColor}>
-      <Content contentRow={contentRow}>
+    <Container>
+      <Content>
+        <TouchableOpacity activeOpacity={0.5}>
+          <Feather name="menu" size={24} color={"white"} />
+        </TouchableOpacity>
+      </Content>
+
+      <Content>
+        <TextHeader>HBOMAX</TextHeader>
+      </Content>
+
+      <Content>
+        <TextHeader>User</TextHeader>
       </Content>
     </Container>
   );

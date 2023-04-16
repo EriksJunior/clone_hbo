@@ -1,12 +1,15 @@
 import { Routes } from './src/routes';
 import { StatusBar } from 'react-native'
+import Header from './src/components/Header';
 
 export default function App() {
-  StatusBar.setBarStyle("dark-content")
+  StatusBar.setBarStyle("light-content")
   StatusBar.setBackgroundColor("transparent")
-  
+
   return (
-    <Routes />
-    
+    <>
+      <Header />
+      <Routes />
+    </>
   );
 }
