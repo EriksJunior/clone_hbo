@@ -1,11 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign, Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { Home } from "../screens/SHome";
-import { Downloads } from "../screens/Downloads";
-import { Movies } from "../screens/Movies";
-import { Series } from "../screens/Series";
-import { Search } from "../screens/Search";
+import { SHome } from "../screens/SHome";
+import { SMovies } from "../screens/Movies";
+import { SSeries } from "../screens/Series";
+import { SDownloads } from "../screens/Downloads";
+import { SSearch } from "../screens/Search";
 
 const { Screen, Navigator } = createBottomTabNavigator();
 
@@ -21,7 +21,7 @@ export function TabRoutes() {
     }}>
       <Screen
         name="Inicio"
-        component={Home}
+        component={SHome}
         options={{
           tabBarIcon: ({ size, color }) => (
             <AntDesign name="home" size={size} color={color}/>
@@ -30,7 +30,7 @@ export function TabRoutes() {
       />
       <Screen
         name="Filmes"
-        component={Movies}
+        component={SMovies}
         options={{
           tabBarIcon: ({ size, color }) => (
             <MaterialCommunityIcons name="movie-open-outline" size={size} color={color}/>
@@ -39,7 +39,7 @@ export function TabRoutes() {
       />
       <Screen
         name="Séries"
-        component={Series}
+        component={SSeries}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Feather name="tv" size={size} color={color} />
@@ -48,7 +48,7 @@ export function TabRoutes() {
       />
       <Screen
         name="Downloads"
-        component={Downloads}
+        component={SDownloads}
         options={{
           tabBarIcon: ({ size, color }) => (
             <AntDesign name="download" size={size} color={color} />
@@ -57,7 +57,7 @@ export function TabRoutes() {
       />
       <Screen
         name="Pesquisar"
-        component={Search}
+        component={SSearch}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Ionicons name="search-outline" size={size} color={color} />
