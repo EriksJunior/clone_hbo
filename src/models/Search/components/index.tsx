@@ -1,9 +1,10 @@
-import { View, Text } from "react-native"
+import { Text } from "react-native"
+import { Container } from "../../../components/container"
 
 export function Search() {
   return (
-    <View>
+    <Container>
       <Text>Tela de Pesquisa</Text>
-    </View>
+    </Container>
   )
 }

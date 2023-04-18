@@ -1,9 +1,10 @@
-import { View, Text } from "react-native"
+import { Text } from "react-native"
+import { Container } from "../../../components/container"
 
 export function Downloads() {
   return (
-    <View>
+    <Container>
       <Text>Tela de Downloads</Text>
-    </View>
+    </Container>
   )
 }

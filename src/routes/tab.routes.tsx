@@ -15,9 +15,13 @@ export function TabRoutes() {
       headerShown: false,
       tabBarShowLabel: false,
       tabBarStyle: {
-        backgroundColor: '#181818',
+        backgroundColor: "#000000e1",
+        height: 80,
+        borderTopColor: "transparent",
+        position: "absolute",
+        elevation: 0
       },
-      tabBarActiveTintColor: "white"
+      tabBarActiveTintColor: "white",
     }}>
       <Screen
         name="Inicio"

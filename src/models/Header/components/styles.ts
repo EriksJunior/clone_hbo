@@ -5,27 +5,23 @@ import {
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;
 
-interface IContainerStyleProps {
-  backgroundColor?: string
-  contentRow?: string
-}
-
-export const Container = styled.View<IContainerStyleProps>`
-  background-color: ${props => props.backgroundColor};
+export const Container = styled.View`
   padding-top: ${statusBarHeight}px;
   padding-bottom: 10px;
   flex-direction: row;
-  flex: 0.03;
+  width: 100%;
   justify-content: space-evenly;
   align-items: center;
   gap: 100px;
-  background-color: #181818;
+  background-color: #000000e1;
+  position: absolute;
+  z-index: 1;
 `;
 
-export const Content = styled.View<IContainerStyleProps>`
+export const Content = styled.View`
 `;
 
-export const ContentUser = styled.View<IContainerStyleProps>`
+export const ContentUser = styled.View`
   width: 28px;
   height: 28px;
   border-radius: 50px;

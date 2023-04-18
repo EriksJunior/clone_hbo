@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Home } from "../screens/SHome";
-import { Downloads } from "../screens/Downloads";
-import { Movies } from "../screens/Movies";
-import { Series } from "../screens/Series";
-import { Search } from "../screens/Search";
+import { SHome } from "../screens/SHome";
+import { SDownloads } from "../screens/Downloads";
+import { SMovies } from "../screens/Movies";
+import { SSeries } from "../screens/Series";
+import { SSearch } from "../screens/Search";
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -12,23 +12,23 @@ export function StackRoutes() {
     <Navigator>
       <Screen
         name="home"
-        component={Home}
+        component={SHome}
       />
       <Screen
         name="movies"
-        component={Movies}
+        component={SMovies}
       />
       <Screen
         name="series"
-        component={Series}
+        component={SSeries}
       />
       <Screen
         name="downloads"
-        component={Downloads}
+        component={SDownloads}
       />
       <Screen
         name="search"
-        component={Search}
+        component={SSearch}
       />
     </Navigator>
   )

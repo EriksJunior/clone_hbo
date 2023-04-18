@@ -1,9 +1,10 @@
-import { View, Text } from "react-native"
+import { Text } from "react-native"
+import { Container } from "../../../components/container"
 
 export function Home() {
   return (
-    <View>
+    <Container>
       <Text>Tela de Inicial</Text>
-    </View>
+    </Container>
   )
 }

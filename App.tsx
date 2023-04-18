@@ -1,5 +1,5 @@
 import { Routes } from './src/routes';
-import { StatusBar, View } from 'react-native'
+import { StatusBar } from 'react-native'
 
 import Header from "./src/models/Header/components"
 

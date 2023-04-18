@@ -1,9 +1,10 @@
-import { View, Text } from "react-native"
+import { Text } from "react-native"
+import { Container } from "../../../components/container"
 
 export function Movies() {
   return (
-    <View>
+    <Container>
       <Text>Tela de Filmes</Text>
-    </View>
+    </Container>
   )
 }
