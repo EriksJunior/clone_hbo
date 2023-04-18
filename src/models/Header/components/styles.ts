@@ -3,17 +3,16 @@ import {
   StatusBar,
 } from "react-native";
 
-const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;
+const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 7 : 64;
 
 export const Container = styled.View`
   padding-top: ${statusBarHeight}px;
-  padding-bottom: 10px;
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
   gap: 100px;
-  background-color: #000000e1;
+  background-color: transparent;
   position: absolute;
   z-index: 1;
 `;

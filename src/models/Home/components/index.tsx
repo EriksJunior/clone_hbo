@@ -1,22 +1,10 @@
-import { Text } from "react-native"
 import { Container } from "../../../components/container"
+import { Banner } from "./Banner"
 
 export function Home() {
   return (
     <Container>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
-      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Banner />
     </Container>
   )
 }
