@@ -4,7 +4,19 @@ import { Container } from "../../../components/container"
 export function Home() {
   return (
     <Container>
-      <Text>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
+      <Text style={{color: "white"}}>Tela de Inicial</Text>
     </Container>
   )
 }
