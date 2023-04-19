@@ -8,7 +8,7 @@ export function Sidebar() {
   const { sidebarActive, setSidebarActive } = useContext(SidebarContext) as { sidebarActive: boolean, setSidebarActive: (value: boolean) => void }
 
   return (
-    <ContentGeneral sideBarActiver={sidebarActive} >
+    <ContentGeneral isSidebarActive={sidebarActive} >
       {sidebarActive &&
         <ContentSidebar>
           <View style={{ paddingTop: 50 }}>

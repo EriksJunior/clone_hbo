@@ -1,13 +1,13 @@
 import styled from "styled-components/native";
 
 interface Props {
-  sideBarActiver?: boolean
+  isSidebarActive?: boolean
 }
 
 export const ContentGeneral = styled.View<Props>`
   position: absolute;
-  width: ${({ sideBarActiver }) => sideBarActiver ? "100%" : "100%"};
-  height: ${({ sideBarActiver }) => sideBarActiver ? "100%" : "0"};
+  width: ${({ isSidebarActive }) => isSidebarActive ? "100%" : "100%"};
+  height: ${({ isSidebarActive }) => isSidebarActive ? "100%" : "0"};
   background-color: #00000061;
   z-index: 3;
 `
