@@ -15,13 +15,8 @@ export const ContentGeneral = styled.View<Props>`
 export const ContentSidebar = styled.View`
   height: 100%;
   width: 50%;
+  flex-direction: column;
   background-color: #1b1616;
   position: absolute;
   z-index: 2;
-`
-
-export const ContentHeader = styled.View`
-  position: absolute;
-  z-index: 1;
-  width: 100%;
 `

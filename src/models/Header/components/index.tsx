@@ -1,18 +1,20 @@
+import { useContext } from 'react';
+import { SidebarContext } from '../../Sidebar/context';
+
 import { Feather } from '@expo/vector-icons';
 import { TouchableOpacity, Image } from "react-native"
 
 import { Container, Content, ContentUser, TextHeader } from "./styles";
 
-interface IHeader {
-  activeSidebar?: () => void
-}
 
-export function Header({activeSidebar}: IHeader) {
+export function Header() {
+  const { setSidebarActive } = useContext(SidebarContext) as { setSidebarActive: (value: boolean) => void }
+  
   return (
     <Container>
       <Content>
         <TouchableOpacity activeOpacity={0.5} >
-          <Feather name="menu" size={24} color={"white"}  onPress={activeSidebar} />
+          <Feather name="menu" size={24} color={"white"}  onPress={() => setSidebarActive(true)} />
         </TouchableOpacity>
       </Content>
 
