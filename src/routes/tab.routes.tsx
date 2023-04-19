@@ -19,7 +19,7 @@ export function TabRoutes() {
         height: 80,
         borderTopColor: "transparent",
         position: "absolute",
-        elevation: 0
+        elevation: 0,
       },
       tabBarActiveTintColor: "white",
     }}>

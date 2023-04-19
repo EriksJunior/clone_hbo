@@ -3,12 +3,16 @@ import { TouchableOpacity, Image } from "react-native"
 
 import { Container, Content, ContentUser, TextHeader } from "./styles";
 
-export default function Header() {
+interface IHeader {
+  activeSidebar?: () => void
+}
+
+export function Header({activeSidebar}: IHeader) {
   return (
     <Container>
       <Content>
-        <TouchableOpacity activeOpacity={0.5}>
-          <Feather name="menu" size={24} color={"white"} />
+        <TouchableOpacity activeOpacity={0.5} >
+          <Feather name="menu" size={24} color={"white"}  onPress={activeSidebar} />
         </TouchableOpacity>
       </Content>
 

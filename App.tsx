@@ -1,7 +1,8 @@
 import { Routes } from './src/routes';
 import { StatusBar } from 'react-native'
 
-import Header from "./src/models/Header/components"
+import { Sidebar } from './src/models/Sidebar/components';
+import SidebarProvider from './src/models/Sidebar/context';
 
 export default function App() {
   StatusBar.setBarStyle("light-content")
@@ -9,7 +10,9 @@ export default function App() {
 
   return (
     <>
-      <Header />
+      <SidebarProvider>
+        <Sidebar />
+      </SidebarProvider>
       <Routes />
     </>
   );
