@@ -6,7 +6,7 @@ import { View, Text, LayoutAnimation } from "react-native"
 import { Feather } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 
-import { ContentSidebar, ContentGeneral } from "./styles";
+import { ContentSidebar, ContentGeneral, Option, Title, Separate } from "./styles";
 
 export function Sidebar() {
   const { sidebarActive, setSidebarActive } = useContext(SidebarContext) as { sidebarActive: boolean, setSidebarActive: (value: boolean) => void }
@@ -25,44 +25,42 @@ export function Sidebar() {
             }} />
           </View>
 
-          <View style={{ marginTop: 25, marginLeft: 16, marginRight: 16 }}>
-            <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Séries</Text>
-          </View>
+          <Option>
+            <Title>Séries</Title>
+          </Option>
 
-          <View style={{ marginTop: 25, marginLeft: 16, marginRight: 16 }}>
-            <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Filmes</Text>
-          </View>
+          <Option>
+            <Title>Filmes</Title>
+          </Option>
 
-          <View style={{ marginTop: 25, marginLeft: 16, marginRight: 16 }}>
-            <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Originais</Text>
-          </View>
+          <Option>
+            <Title>Originais</Title>
+          </Option>
 
-          <View style={{ width: 200, marginTop: 25, marginLeft: 16, marginRight: 16 }}>
-            <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Adicionados Recentemente</Text>
-          </View>
+          <Option style={{ width: 200, marginTop: 25, marginLeft: 16, marginRight: 16 }}>
+            <Title>Adicionados Recentemente</Title>
+          </Option>
 
-          <View style={{ marginTop: 25, marginLeft: 16, marginRight: 16 }}>
-            <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Últimos Dias</Text>
-          </View>
+          <Option>
+            <Title>Últimos Dias</Title>
+          </Option>
 
-          <View style={{ marginTop: 25, marginLeft: 16, marginRight: 16 }}>
-            <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Em Breve</Text>
-          </View>
+          <Option>
+            <Title>Em Breve</Title>
+          </Option>
 
-          <View style={{ marginTop: 25, marginLeft: 16, marginRight: 16 }}>
-            <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Em Alta</Text>
-          </View>
+          <Option>
+            <Title>Em Alta</Title>
+          </Option>
 
-          <View style={{ marginTop: 40, marginLeft: 16, marginRight: 16, marginVertical: 20, borderBottomColor: "#737373", borderBottomWidth: 1 }}>
-          </View>
+          <Separate marginTop="40"/>
 
           <View style={{ marginLeft: 16, marginRight: 16, flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-            <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Gêneros</Text>
+            <Title>Gêneros</Title>
             <SimpleLineIcons name="arrow-right" size={18} color={"white"} />
           </View>
 
-          <View style={{ marginBottom: 20, marginLeft: 16, marginRight: 16, marginVertical: 20, borderBottomColor: "#737373", borderBottomWidth: 1 }}>
-          </View>
+          <Separate marginTop="20"/>
         </ContentSidebar>
       }
     </ContentGeneral>
