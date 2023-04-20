@@ -7,31 +7,43 @@ import { Feather } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 
 import { ContentSidebar, ContentGeneral, Option, Title, Separate } from "./styles";
-import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 
 export function Sidebar() {
   const { sidebarActive, setSidebarActive } = useContext(SidebarContext) as { sidebarActive: boolean, setSidebarActive: (value: boolean) => void }
   const [principalOptions, setprincipalOptions] = useState(true)
 
-  const otherAnimated = useSharedValue(0)
+  const otherOptionAnimated = useSharedValue(0)
+  const principalOptionAnimated  = useSharedValue(1)
 
-  const enableOthers = useAnimatedStyle(() => {
+  const enableOthersOptions = useAnimatedStyle(() => {
     return {
       transform: [{
-        translateX: interpolate(otherAnimated.value, [0, 1], [-100, 0])
+        translateX: interpolate(otherOptionAnimated.value, [0, 1], [-100, 0])
       }],
-      // opacity: interpolate(otherAnimated.value, [0, 1], [1, 0])
+      opacity: interpolate(otherOptionAnimated.value, [0, 1], [0, 1])
+    }
+  })
+
+  const enablePrincipalOptions = useAnimatedStyle(() => {
+    return {
+      transform: [{
+        translateX: interpolate(principalOptionAnimated.value, [1, 0], [0, 50])
+      }],
+      opacity: interpolate(otherOptionAnimated.value, [0, 1], [1, 0])
     }
   })
 
   const applyAnimated = () => {
-    const nreValue = 1
-    otherAnimated.value = withTiming(nreValue, { duration: 500 })
+    const newValue = 1
+    otherOptionAnimated.value = withTiming(newValue, { duration: 500, easing: Easing.bounce })
+    principalOptionAnimated.value = withTiming(0, { duration: 500, easing: Easing.bounce  })
   }
 
   const disableAnimated = () => {
-    const nreValue = 0
-    otherAnimated.value = withTiming(nreValue, { duration: 500 })
+    const newValue = 0
+    otherOptionAnimated.value = withTiming(newValue, { duration: 500, easing: Easing.bounce  })
+    principalOptionAnimated.value = withTiming(1, { duration: 500, easing: Easing.bounce  })
   }
 
   return (
@@ -39,7 +51,7 @@ export function Sidebar() {
       {sidebarActive &&
         <ContentSidebar>
           {principalOptions ?
-            <View>
+            <Animated.View style={enablePrincipalOptions}>
               <View style={{ marginTop: 35, marginLeft: 16, marginRight: 16 }}>
                 <Feather name="x" size={25} color={"white"} onPress={() => {
                   LayoutAnimation.configureNext({
@@ -91,11 +103,11 @@ export function Sidebar() {
 
                 <Separate marginTop="20" />
               </Pressable>
-            </View>
+            </Animated.View>
 
             :
 
-            <Animated.View style={enableOthers}>
+            <Animated.View style={enableOthersOptions}>
               <View style={{ marginTop: 35, marginLeft: 16, marginRight: 16 }}>
                 <SimpleLineIcons name="arrow-left" size={18} color={"white"} onPress={() => {
                   setprincipalOptions(true),
