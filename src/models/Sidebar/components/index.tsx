@@ -18,14 +18,20 @@ export function Sidebar() {
   const enableOthers = useAnimatedStyle(() => {
     return {
       transform: [{
-        translateX: interpolate(otherAnimated.value, [0, 1], [1, 1])
+        translateX: interpolate(otherAnimated.value, [0, 1], [-100, 0])
       }],
       // opacity: interpolate(otherAnimated.value, [0, 1], [1, 0])
     }
   })
 
   const applyAnimated = () => {
-    otherAnimated.value = withTiming(otherAnimated.value, { duration: 1000 })
+    const nreValue = 1
+    otherAnimated.value = withTiming(nreValue, { duration: 500 })
+  }
+
+  const disableAnimated = () => {
+    const nreValue = 0
+    otherAnimated.value = withTiming(nreValue, { duration: 500 })
   }
 
   return (
@@ -74,7 +80,7 @@ export function Sidebar() {
 
               <Pressable onPress={() => {
                 setprincipalOptions(false),
-                applyAnimated()
+                  applyAnimated()
               }}>
                 <Separate marginTop="40" />
 
@@ -92,7 +98,8 @@ export function Sidebar() {
             <Animated.View style={enableOthers}>
               <View style={{ marginTop: 35, marginLeft: 16, marginRight: 16 }}>
                 <SimpleLineIcons name="arrow-left" size={18} color={"white"} onPress={() => {
-                  setprincipalOptions(true)
+                  setprincipalOptions(true),
+                    disableAnimated()
                 }} />
               </View>
 
