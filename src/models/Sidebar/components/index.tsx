@@ -7,10 +7,26 @@ import { Feather } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 
 import { ContentSidebar, ContentGeneral, Option, Title, Separate } from "./styles";
+import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 
 export function Sidebar() {
   const { sidebarActive, setSidebarActive } = useContext(SidebarContext) as { sidebarActive: boolean, setSidebarActive: (value: boolean) => void }
   const [principalOptions, setprincipalOptions] = useState(true)
+
+  const otherAnimated = useSharedValue(0)
+
+  const enableOthers = useAnimatedStyle(() => {
+    return {
+      transform: [{
+        translateX: interpolate(otherAnimated.value, [0, 1], [1, 1])
+      }],
+      // opacity: interpolate(otherAnimated.value, [0, 1], [1, 0])
+    }
+  })
+
+  const applyAnimated = () => {
+    otherAnimated.value = withTiming(otherAnimated.value, { duration: 1000 })
+  }
 
   return (
     <ContentGeneral isSidebarActive={sidebarActive} >
@@ -57,7 +73,8 @@ export function Sidebar() {
               </Option>
 
               <Pressable onPress={() => {
-                setprincipalOptions(false)
+                setprincipalOptions(false),
+                applyAnimated()
               }}>
                 <Separate marginTop="40" />
 
@@ -72,7 +89,7 @@ export function Sidebar() {
 
             :
 
-            <View>
+            <Animated.View style={enableOthers}>
               <View style={{ marginTop: 35, marginLeft: 16, marginRight: 16 }}>
                 <SimpleLineIcons name="arrow-left" size={18} color={"white"} onPress={() => {
                   setprincipalOptions(true)
@@ -126,7 +143,7 @@ export function Sidebar() {
               <Option>
                 <Title>Romance</Title>
               </Option>
-            </View>
+            </Animated.View>
           }
         </ContentSidebar>
       }
