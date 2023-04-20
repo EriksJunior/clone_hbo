@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SidebarContext } from "../context";
 
-import { View, Text } from "react-native"
+import { View, Text, LayoutAnimation } from "react-native"
 
 import { Feather } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
@@ -16,7 +16,13 @@ export function Sidebar() {
       {sidebarActive &&
         <ContentSidebar>
           <View style={{ marginTop: 35, marginLeft: 16, marginRight: 16 }}>
-            <Feather name="x" size={25} color={"white"} onPress={() => setSidebarActive(false)} />
+            <Feather name="x" size={25} color={"white"} onPress={() => {
+              LayoutAnimation.configureNext({
+                duration: 90,
+                delete: { type: 'linear', property: 'opacity' },
+              })
+              setSidebarActive(false)
+            }} />
           </View>
 
           <View style={{ marginTop: 25, marginLeft: 16, marginRight: 16 }}>
@@ -47,15 +53,15 @@ export function Sidebar() {
             <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Em Alta</Text>
           </View>
 
-          <View style={{ marginTop: 40, marginLeft: 16, marginRight: 16, marginVertical: 20, borderBottomColor: "#737373",  borderBottomWidth: 1}}>
+          <View style={{ marginTop: 40, marginLeft: 16, marginRight: 16, marginVertical: 20, borderBottomColor: "#737373", borderBottomWidth: 1 }}>
           </View>
 
           <View style={{ marginLeft: 16, marginRight: 16, flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
             <Text style={{ color: "white", fontWeight: "300", fontSize: 19 }}>Gêneros</Text>
-            <SimpleLineIcons name="arrow-right" size={18} color={"white"}/>
+            <SimpleLineIcons name="arrow-right" size={18} color={"white"} />
           </View>
 
-          <View style={{ marginBottom: 20, marginLeft: 16, marginRight: 16, marginVertical: 20, borderBottomColor: "#737373",  borderBottomWidth: 1}}>
+          <View style={{ marginBottom: 20, marginLeft: 16, marginRight: 16, marginVertical: 20, borderBottomColor: "#737373", borderBottomWidth: 1 }}>
           </View>
         </ContentSidebar>
       }
