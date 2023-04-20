@@ -36,14 +36,14 @@ export function Sidebar() {
 
   const applyAnimated = () => {
     const newValue = 1
-    otherOptionAnimated.value = withTiming(newValue, { duration: 500, easing: Easing.bounce })
-    principalOptionAnimated.value = withTiming(0, { duration: 500, easing: Easing.bounce  })
+    otherOptionAnimated.value = withTiming(newValue, { duration: 500})
+    principalOptionAnimated.value = withTiming(0, { duration: 500 }) //, easing: Easing.bounce para fazer uma animação de tremer ao finalizar
   }
 
   const disableAnimated = () => {
     const newValue = 0
-    otherOptionAnimated.value = withTiming(newValue, { duration: 500, easing: Easing.bounce  })
-    principalOptionAnimated.value = withTiming(1, { duration: 500, easing: Easing.bounce  })
+    otherOptionAnimated.value = withTiming(newValue, { duration: 500 })
+    principalOptionAnimated.value = withTiming(1, { duration: 500 })
   }
 
   return (
