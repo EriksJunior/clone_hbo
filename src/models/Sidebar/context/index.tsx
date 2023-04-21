@@ -11,6 +11,7 @@ export const SidebarContext = createContext({})
 function SidebarProvider({ children }: AuxProps) {
   const [sidebarActive, setSidebarActive] = useState(false)
   const [principalOptions, setprincipalOptions] = useState(true)
+  
   const otherOptionAnimated = useSharedValue(0)
   const principalOptionAnimated = useSharedValue(1)
 

@@ -1,17 +1,14 @@
 import { useContext } from "react";
 import { SidebarContext } from "../../context";
 
-import { LayoutAnimation, Pressable, View } from "react-native"
+import { View } from "react-native"
 import Animated from "react-native-reanimated"
 
-import { Feather } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
-import { Option, Separate, Title } from "../styles";
-
+import { Option, Title } from "../styles";
 
 export function ListOthersOptions() {
   const {enableOthersOptions, setprincipalOptions, disableAnimated } = useContext(SidebarContext) as { enableOthersOptions: any, setprincipalOptions: (value: boolean) => void, disableAnimated: () => void }
-
 
   return (
     <Animated.View style={enableOthersOptions}>
