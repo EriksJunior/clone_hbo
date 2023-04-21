@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 export function Banner() {
   const windowWidth = Dimensions.get('window').width;
-  const [oldValueScroll, setOldValueScroll]= useState(0);
+  const [oldValueScroll, setOldValueScroll] = useState(0);
   const [isScrollViewReady, setIsScrollViewReady] = useState(false);
 
   const scrollViewRef = useRef<ScrollView>(null);
@@ -25,16 +25,22 @@ export function Banner() {
 
   const startAutoScroll = () => {
     if (isScrollViewReady) {
-      scrollViewRef.current?.scrollTo({x: oldValueScroll + windowWidth,  animated: true});
+      scrollViewRef.current?.scrollTo({ x: oldValueScroll + windowWidth, animated: true });
     }
   };
 
   const teste = (event: any) => {
     const { contentOffset } = event.nativeEvent;
     setOldValueScroll(contentOffset.x)
+
+    const offsetX = event.nativeEvent.contentOffset.x.toFixed(2);
+    const finalValue = (event.nativeEvent.contentSize.width - event.nativeEvent.layoutMeasurement.width).toFixed(2)
+
+    if (offsetX === finalValue) {
+      scrollViewRef.current?.scrollTo({ x: 0, animated: true });
+    }
+
   }
-
-
 
   return (
     <ContentBanner>
