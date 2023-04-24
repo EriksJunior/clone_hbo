@@ -1,23 +1,43 @@
-import { Dimensions, Image, ScrollView, View } from "react-native"
+import { Dimensions, Image, Pressable, ScrollView } from "react-native"
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import { ContentBanner } from "./styles"
 import { useEffect, useRef, useState } from "react";
 
 export function Banner() {
-  const windowWidth = Dimensions.get('window').width;
+  const [pressStart, setPressStart] = useState(false);
+  const [isLastItem, setIsLastitem] = useState(false);
   const [oldValueScroll, setOldValueScroll] = useState(0);
   const [isScrollViewReady, setIsScrollViewReady] = useState(false);
-
   const scrollViewRef = useRef<ScrollView>(null);
-
+  const windowWidth = Dimensions.get('window').width;
+  const banners = [
+    { source: require("../../../Header/components/assets/venom.jpg") },
+    { source: require("../../../Header/components/assets/miranha.jpg") },
+    { source: require("../../../Header/components/assets/deadPool2.jpg") },
+    { source: require("../../../Header/components/assets/jhonWilson4.jpg") },
+  ]
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      startAutoScroll();
-    }, 3000);
+    if (pressStart) {
+      return
+    }
 
-    return () => clearInterval(interval);
-  }, [isScrollViewReady, oldValueScroll]);
+    if (isLastItem) {
+      const timeout = setTimeout(() => {
+        setOldValueScroll(0)
+        scrollViewRef.current?.scrollTo({ x: 0, animated: true });
+      }, 3000)
+
+      return () => clearInterval(timeout);
+    } else {
+      const interval = setInterval(() => {
+        startAutoScroll();
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }
+
+  }, [isScrollViewReady, oldValueScroll, pressStart, isLastItem]);
 
   const handleScrollViewReady = () => {
     setIsScrollViewReady(!isScrollViewReady);
@@ -29,37 +49,41 @@ export function Banner() {
     }
   };
 
-  const teste = (event: any) => {
+  const handlePressIn = () => {
+    setPressStart(true)
+  }
+
+  const handlePressOut = () => {
+    setPressStart(false)
+  }
+
+  const returnFistBanner = (event: any) => {
     const { contentOffset } = event.nativeEvent;
+    
     setOldValueScroll(contentOffset.x)
 
     const offsetX = event.nativeEvent.contentOffset.x.toFixed(2);
     const finalValue = (event.nativeEvent.contentSize.width - event.nativeEvent.layoutMeasurement.width).toFixed(2)
 
     if (offsetX === finalValue) {
-      scrollViewRef.current?.scrollTo({ x: 0, animated: true });
+      setIsLastitem(true)
+    } else {
+      setIsLastitem(false)
     }
-
   }
 
   return (
     <ContentBanner>
-      <ScrollView ref={scrollViewRef} horizontal={true} pagingEnabled showsHorizontalScrollIndicator={false} onContentSizeChange={handleScrollViewReady} onScroll={(e) => teste(e)} >
-        <Animated.View>
-          <Image source={require("../../../Header/components/assets/venom.jpg")} style={{ width: windowWidth, height: "100%" }} />
-        </Animated.View>
+      <ScrollView ref={scrollViewRef} horizontal={true} pagingEnabled showsHorizontalScrollIndicator={false} onContentSizeChange={handleScrollViewReady} onScroll={(e) => returnFistBanner(e)} >
 
-        <Animated.View>
-          <Image source={require("../../../Header/components/assets/miranha.jpg")} style={{ width: windowWidth, height: "100%" }} />
-        </Animated.View>
+        {banners.map((banner, index) =>
+          <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut} key={index}>
+            <Animated.View>
+              <Image source={banner.source} style={{ width: windowWidth, height: "100%" }} />
+            </Animated.View>
+          </Pressable>
+        )}
 
-        <Animated.View>
-          <Image source={require("../../../Header/components/assets/deadPool2.jpg")} style={{ width: windowWidth, height: "100%" }} />
-        </Animated.View>
-
-        <Animated.View>
-          <Image source={require("../../../Header/components/assets/jhonWilson4.jpg")} style={{ width: windowWidth, height: "100%" }} />
-        </Animated.View>
       </ScrollView>
     </ContentBanner>
   )

@@ -29,7 +29,8 @@ export function TabRoutes() {
         options={{
           tabBarIcon: ({ size, color }) => (
             <AntDesign name="home" size={size} color={color}/>
-          )
+          ),
+          unmountOnBlur: true
         }}
       />
       <Screen
