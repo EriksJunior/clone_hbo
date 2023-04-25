@@ -17,28 +17,28 @@ export function Banner() {
     { source: require("../../../Header/components/assets/jhonWilson4.jpg") },
   ]
 
-  // useEffect(() => {
-  //   const ms = 3000
-  //   if (pressStart) {
-  //     return
-  //   }
+  useEffect(() => {
+    const ms = 3000
+    if (pressStart) {
+      return
+    }
 
-  //   if (isLastItem) {
-  //     const timeout = setTimeout(() => {
-  //       setOldValueScroll(0)
-  //       scrollViewRef.current?.scrollTo({ x: 0, animated: true });
-  //     }, ms)
+    if (isLastItem) {
+      const timeout = setTimeout(() => {
+        setOldValueScroll(0)
+        scrollViewRef.current?.scrollTo({ x: 0, animated: true });
+      }, ms)
 
-  //     return () => clearInterval(timeout);
-  //   } else {
-  //     const interval = setInterval(() => {
-  //       startAutoScroll();
-  //     }, ms);
+      return () => clearInterval(timeout);
+    } else {
+      const interval = setInterval(() => {
+        startAutoScroll();
+      }, ms);
 
-  //     return () => clearInterval(interval);
-  //   }
+      return () => clearInterval(interval);
+    }
 
-  // }, [isScrollViewReady, oldValueScroll, pressStart, isLastItem]);
+  }, [isScrollViewReady, oldValueScroll, pressStart, isLastItem]);
 
   const handleScrollViewReady = () => {
     setIsScrollViewReady(!isScrollViewReady);
