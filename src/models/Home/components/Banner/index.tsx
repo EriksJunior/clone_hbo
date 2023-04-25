@@ -1,6 +1,6 @@
 import { Dimensions, Image, Pressable, ScrollView, View, Text, ImageBackground } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
-import { ContentBanner } from "./styles"
+import { ContentBanner, Dots } from "./styles"
 import { useEffect, useRef, useState } from "react";
 
 export function Banner() {
@@ -75,14 +75,14 @@ export function Banner() {
 
   return (
     <ContentBanner>
-      <ScrollView ref={scrollViewRef} horizontal={true} pagingEnabled showsHorizontalScrollIndicator={false} onContentSizeChange={handleScrollViewReady} onScroll={(e) => returnFistBanner(e)} >
+      <ScrollView ref={scrollViewRef} horizontal={true} pagingEnabled showsHorizontalScrollIndicator={false} onContentSizeChange={handleScrollViewReady} onScroll={(e) => returnFistBanner(e)}>
         {banners.map((banner, index) =>
           <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut} key={index}>
             <ImageBackground source={banner.source} style={{ width: windowWidth, height: "100%" }}>
               <LinearGradient
                 colors={['rgba(255, 255, 255, 0)', '#000000']}
                 style={{ height: '100%', width: '100%' }}
-                start={{ x: 0, y: 0.70}}
+                start={{ x: 0, y: 0.70 }}
                 end={{ x: 0, y: 0.94 }}
               />
             </ImageBackground>
@@ -90,8 +90,10 @@ export function Banner() {
         )}
       </ScrollView>
 
-      <View style={{ width: "100%", position: "absolute", zIndex: 800, bottom: 0, justifyContent: "flex-end", alignItems: "center" }}>
-        <Text style={{ color: "white" }}>o o o o o</Text>
+      <View style={{ width: "100%", position: "absolute", bottom: 0, flexDirection: "row", justifyContent: "center", gap: 15 }}>
+        {banners.map((banner, index) =>
+          <Dots  key={index} style={{backgroundColor: "gray"}}/>
+        )}
       </View>
     </ContentBanner>
   )
