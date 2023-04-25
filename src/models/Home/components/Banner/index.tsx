@@ -82,7 +82,7 @@ export function Banner() {
               <LinearGradient
                 colors={['rgba(255, 255, 255, 0)', '#000000']}
                 style={{ height: '100%', width: '100%' }}
-                start={{ x: 0, y: 0.80}}
+                start={{ x: 0, y: 0.70}}
                 end={{ x: 0, y: 0.94 }}
               />
             </ImageBackground>
