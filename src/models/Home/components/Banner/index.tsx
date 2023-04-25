@@ -1,5 +1,5 @@
-import { Dimensions, Image, Pressable, ScrollView } from "react-native"
-import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import { Dimensions, Image, Pressable, ScrollView, View, Text, ImageBackground } from "react-native"
+import { LinearGradient } from 'expo-linear-gradient';
 import { ContentBanner } from "./styles"
 import { useEffect, useRef, useState } from "react";
 
@@ -17,27 +17,28 @@ export function Banner() {
     { source: require("../../../Header/components/assets/jhonWilson4.jpg") },
   ]
 
-  useEffect(() => {
-    if (pressStart) {
-      return
-    }
+  // useEffect(() => {
+  //   const ms = 3000
+  //   if (pressStart) {
+  //     return
+  //   }
 
-    if (isLastItem) {
-      const timeout = setTimeout(() => {
-        setOldValueScroll(0)
-        scrollViewRef.current?.scrollTo({ x: 0, animated: true });
-      }, 3000)
+  //   if (isLastItem) {
+  //     const timeout = setTimeout(() => {
+  //       setOldValueScroll(0)
+  //       scrollViewRef.current?.scrollTo({ x: 0, animated: true });
+  //     }, ms)
 
-      return () => clearInterval(timeout);
-    } else {
-      const interval = setInterval(() => {
-        startAutoScroll();
-      }, 3000);
+  //     return () => clearInterval(timeout);
+  //   } else {
+  //     const interval = setInterval(() => {
+  //       startAutoScroll();
+  //     }, ms);
 
-      return () => clearInterval(interval);
-    }
+  //     return () => clearInterval(interval);
+  //   }
 
-  }, [isScrollViewReady, oldValueScroll, pressStart, isLastItem]);
+  // }, [isScrollViewReady, oldValueScroll, pressStart, isLastItem]);
 
   const handleScrollViewReady = () => {
     setIsScrollViewReady(!isScrollViewReady);
@@ -59,7 +60,7 @@ export function Banner() {
 
   const returnFistBanner = (event: any) => {
     const { contentOffset } = event.nativeEvent;
-    
+
     setOldValueScroll(contentOffset.x)
 
     const offsetX = event.nativeEvent.contentOffset.x.toFixed(2);
@@ -75,16 +76,23 @@ export function Banner() {
   return (
     <ContentBanner>
       <ScrollView ref={scrollViewRef} horizontal={true} pagingEnabled showsHorizontalScrollIndicator={false} onContentSizeChange={handleScrollViewReady} onScroll={(e) => returnFistBanner(e)} >
-
         {banners.map((banner, index) =>
           <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut} key={index}>
-            <Animated.View>
-              <Image source={banner.source} style={{ width: windowWidth, height: "100%" }} />
-            </Animated.View>
+            <ImageBackground source={banner.source} style={{ width: windowWidth, height: "100%" }}>
+              <LinearGradient
+                colors={['rgba(255, 255, 255, 0)', '#000000']}
+                style={{ height: '100%', width: '100%' }}
+                start={{ x: 0, y: 0.80}}
+                end={{ x: 0, y: 0.94 }}
+              />
+            </ImageBackground>
           </Pressable>
         )}
-
       </ScrollView>
+
+      <View style={{ width: "100%", position: "absolute", zIndex: 800, bottom: 0, justifyContent: "flex-end", alignItems: "center" }}>
+        <Text style={{ color: "white" }}>o o o o o</Text>
+      </View>
     </ContentBanner>
   )
 }
