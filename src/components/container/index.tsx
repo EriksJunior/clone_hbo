@@ -1,3 +1,4 @@
+import { ScrollView } from "react-native"
 import { Content } from "./styles"
 
 interface AuxProps {
@@ -7,7 +8,9 @@ interface AuxProps {
 export function Container({ children }: AuxProps) {
   return (
     <Content>
-      {children}
+      <ScrollView>
+        {children}
+      </ScrollView>
     </Content>
   )
 }

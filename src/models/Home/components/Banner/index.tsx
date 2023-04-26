@@ -1,4 +1,4 @@
-import { Dimensions, Pressable, ScrollView, View, ImageBackground, PanResponder } from "react-native"
+import { Dimensions, Pressable, ScrollView, View, ImageBackground } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import { ContentBanner, Indicator } from "./styles"
 import { useEffect, useRef, useState } from "react";
@@ -102,7 +102,7 @@ export function Banner() {
 
   return (
     <ContentBanner>
-      <ScrollView ref={scrollViewRef} horizontal={true} pagingEnabled showsHorizontalScrollIndicator={false} onContentSizeChange={handleScrollViewReady} onScroll={(e) => returnFistBanner(e)}>
+      <ScrollView ref={scrollViewRef} horizontal={true} scrollEventThrottle={16} pagingEnabled showsHorizontalScrollIndicator={false} onContentSizeChange={handleScrollViewReady} onScroll={(e) => returnFistBanner(e)}>
         {banners.map((banner, index) =>
           <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut} key={index}>
             <ImageBackground source={banner.source} style={{ width: windowWidth, height: "100%" }} >

@@ -1,7 +1,8 @@
 import styled from "styled-components/native";
 
 export const ContentBanner = styled.View`
-  height: 80%;
+  /* height: 80%; */
+  height: 620px;
 `
 
 export const Indicator = styled.View`
