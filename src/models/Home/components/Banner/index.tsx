@@ -8,6 +8,8 @@ export function Banner() {
   const [isLastItem, setIsLastitem] = useState(false);
   const [oldValueScroll, setOldValueScroll] = useState(0);
   const [isScrollViewReady, setIsScrollViewReady] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
 
   const scrollViewRef = useRef<ScrollView>(null);
   const windowWidth = Dimensions.get('window').width;
@@ -63,6 +65,7 @@ export function Banner() {
     const { contentOffset } = event.nativeEvent;
 
     setOldValueScroll(contentOffset.x)
+    getIndexIndicator(contentOffset.x)
     stopScrollIfFingerSwiper(contentOffset.x)
 
     const offsetX = event.nativeEvent.contentOffset.x.toFixed(2);
@@ -75,13 +78,14 @@ export function Banner() {
     }
   }
 
-  const getIndexIndicator = () => {
-    let indexIndicator = Math.round(oldValueScroll / windowWidth)
-    return indexIndicator
+  const getIndexIndicator = (scroll: number) => {
+    let indexIndicator = Math.round(scroll / windowWidth)
+    setCurrentIndex(indexIndicator)
   }
 
+
   const stopScrollIfFingerSwiper = (sizeScroll: number) => {
-    const index = getIndexIndicator()
+    const index = currentIndex
     let result = (sizeScroll / index).toFixed();
     
     if (sizeScroll === 0) {
@@ -115,7 +119,7 @@ export function Banner() {
 
       <View style={{ width: "100%", position: "absolute", bottom: 0, flexDirection: "row", justifyContent: "center", gap: 15 }}>
         {banners.map((_, index) =>
-          <Indicator key={index} style={[index === getIndexIndicator() ? { backgroundColor: "white" } : { backgroundColor: "gray" }]} />
+          <Indicator key={index} style={[index === currentIndex ? { backgroundColor: "white" } : { backgroundColor: "gray" }]} />
         )}
       </View>
     </ContentBanner>
