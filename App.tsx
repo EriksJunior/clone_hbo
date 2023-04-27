@@ -15,6 +15,7 @@ export default function App() {
         <Sidebar />
         <Header />
       </SidebarProvider>
+
       <Routes />
     </>
   );

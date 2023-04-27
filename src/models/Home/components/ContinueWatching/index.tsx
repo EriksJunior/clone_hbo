@@ -1,5 +1,6 @@
 import { Text, View, ScrollView, Image, Pressable, Dimensions } from "react-native"
 import { SimpleLineIcons } from '@expo/vector-icons';
+import { LinearGradient } from "expo-linear-gradient";
 
 
 export function ContinueWatching() {
@@ -24,30 +25,30 @@ export function ContinueWatching() {
         <SimpleLineIcons name="arrow-right" color={"white"} />
       </Pressable>
 
-      <ScrollView showsHorizontalScrollIndicator={false}
-        horizontal={true}
-        scrollEventThrottle={16}
-        snapToAlignment="end"
-        decelerationRate={"fast"}
-        pagingEnabled
-      >
-        {itens.map((item, index) =>
-          <Pressable style={{ marginLeft: 10 }} key={index}>
-            <Image source={item.source} style={{ width: 176, height: 176, resizeMode: "stretch" }} />
-            <Text style={{ color: "#fffaf0c4", marginTop: 20, fontWeight: "600", width: width / 2.45 }}
+        <ScrollView showsHorizontalScrollIndicator={false}
+          horizontal={true}
+          scrollEventThrottle={16}
+          snapToAlignment="end"
+          decelerationRate={"fast"}
+          pagingEnabled
+        >
+          {itens.map((item, index) =>
+            <Pressable style={{ marginLeft: 10 }} key={index}>
+              <Image source={item.source} style={{ width: 176, height: 176, resizeMode: "stretch" }} />
+              <Text style={{ color: "#fffaf0c4", marginTop: 20, fontWeight: "600", width: width / 2.45 }}
+              >
+                {item.title}
+              </Text>
+            </Pressable>
+          )}
+
+          <Pressable style={{ marginLeft: 15, width: width / 2.45, height: 170, backgroundColor: "#6464786e", justifyContent: "center", alignItems: "center" }}>
+            <Text style={{ color: "#fffaf09a", fontWeight: "bold" }}
             >
-              {item.title}
+              Ver mais
             </Text>
           </Pressable>
-        )}
-
-        <Pressable style={{ marginLeft: 15, width: width / 2.45, height: 170, backgroundColor: "#6464786e", justifyContent: "center", alignItems: "center" }}>
-          <Text style={{ color: "#fffaf09a", fontWeight: "bold" }}
-          >
-            Ver mais
-          </Text>
-        </Pressable>
-      </ScrollView>
+        </ScrollView>
     </View>
   )
 }
