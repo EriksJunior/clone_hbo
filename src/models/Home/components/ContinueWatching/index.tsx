@@ -19,10 +19,10 @@ export function ContinueWatching() {
     <LinearGradient colors={["#000000", "transparent"]}
       start={{ x: 0, y: 0.1 }}
       end={{ x: 0, y: 0.85 }}
-      >
+    >
       <View>
         <Pressable style={{ flexDirection: "row", marginBottom: 10, marginTop: 15, marginHorizontal: 15, gap: 10, alignItems: "center" }} >
-          <Text style={{ color: "#fffaf0", fontWeight: "bold" }}>
+          <Text style={{ color: "white", fontWeight: "600" }}>
             Continue Assistindo
           </Text>
 
@@ -33,7 +33,6 @@ export function ContinueWatching() {
           horizontal={true}
           scrollEventThrottle={16}
           snapToAlignment="end"
-          decelerationRate={"fast"}
           pagingEnabled
         >
           {itens.map((item, index) =>
@@ -46,11 +45,13 @@ export function ContinueWatching() {
             </Pressable>
           )}
 
-          <Pressable style={{ marginLeft: 15, width: width / 2.45, height: 170, backgroundColor: "#6464786e", justifyContent: "center", alignItems: "center" }}>
-            <Text style={{ color: "#fffaf09a", fontWeight: "bold" }}
-            >
-              Ver mais
-            </Text>
+          <Pressable style={{ marginLeft: 15, marginRight: 15, width: 176, height: 176, backgroundColor: "#6464786e", justifyContent: "center", alignItems: "center" }}>
+            <View>
+              <Text style={{ color: "#fffaf0ad", fontWeight: "bold" }}
+              >
+                Ver mais
+              </Text>
+            </View>
           </Pressable>
         </ScrollView>
       </View>
