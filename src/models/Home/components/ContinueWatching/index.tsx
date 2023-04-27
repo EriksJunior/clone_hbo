@@ -16,14 +16,18 @@ export function ContinueWatching() {
   const { width } = Dimensions.get("window")
 
   return (
-    <View>
-      <Pressable style={{ flexDirection: "row", marginBottom: 10, marginTop: 15, marginHorizontal: 15, gap: 10, alignItems: "center" }} >
-        <Text style={{ color: "#fffaf0", fontWeight: "bold" }}>
-          Continue Assistindo
-        </Text>
+    <LinearGradient colors={["#000000", "transparent"]}
+      start={{ x: 0, y: 0.1 }}
+      end={{ x: 0, y: 0.85 }}
+      >
+      <View>
+        <Pressable style={{ flexDirection: "row", marginBottom: 10, marginTop: 15, marginHorizontal: 15, gap: 10, alignItems: "center" }} >
+          <Text style={{ color: "#fffaf0", fontWeight: "bold" }}>
+            Continue Assistindo
+          </Text>
 
-        <SimpleLineIcons name="arrow-right" color={"white"} />
-      </Pressable>
+          <SimpleLineIcons name="arrow-right" color={"white"} />
+        </Pressable>
 
         <ScrollView showsHorizontalScrollIndicator={false}
           horizontal={true}
@@ -49,6 +53,7 @@ export function ContinueWatching() {
             </Text>
           </Pressable>
         </ScrollView>
-    </View>
+      </View>
+    </LinearGradient>
   )
 }

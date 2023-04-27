@@ -1,4 +1,4 @@
-import { ScrollView, View, Text } from "react-native"
+import { View, Text } from "react-native"
 
 import { Container } from "../../../components/container"
 import { ContinueWatching } from "./ContinueWatching"

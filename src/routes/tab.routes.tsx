@@ -15,7 +15,7 @@ export function TabRoutes() {
       headerShown: false,
       tabBarShowLabel: false,
       tabBarStyle: {
-        backgroundColor: "#000000e1",
+        backgroundColor: "#000000da",
         height: 80,
         borderTopColor: "transparent",
         position: "absolute",

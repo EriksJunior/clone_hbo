@@ -9,7 +9,7 @@ export function Banner() {
   const [oldValueScroll, setOldValueScroll] = useState(0);
   const [isScrollViewReady, setIsScrollViewReady] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
 
   const scrollViewRef = useRef<ScrollView>(null);
   const windowWidth = Dimensions.get('window').width;
@@ -90,7 +90,7 @@ export function Banner() {
   const stopScrollIfFingerSwiper = (sizeScroll: number) => {
     const index = currentIndex
     let result = (sizeScroll / index).toFixed();
-    
+
     if (sizeScroll === 0) {
       result = windowWidth.toFixed()
     }

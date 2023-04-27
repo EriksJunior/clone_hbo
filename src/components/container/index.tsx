@@ -9,14 +9,13 @@ interface AuxProps {
 export function Container({ children }: AuxProps) {
   return (
     <Content>
-      <ScrollView>
-        <LinearGradient colors={["#000001", "#030105", "#4a1e64", "#000001"]}
-          style={{width: '100%' }}
-          start={{ x: 1, y: 0.1 }}
-          end={{ x: 0.5, y: 1 }}>
+      <LinearGradient colors={["#000001", "#4a1e64"]}
+        start={{ x: 1, y: 3 }}
+        end={{ x: 3, y: 0 }}>
+        <ScrollView>
           {children}
-        </LinearGradient>
-      </ScrollView>
+        </ScrollView>
+      </LinearGradient>
     </Content>
   )
 }
