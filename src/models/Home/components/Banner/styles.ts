@@ -6,8 +6,8 @@ export const ContentBanner = styled.View`
 `
 
 export const Indicator = styled.View`
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50px;
   background-color: gray;
 `

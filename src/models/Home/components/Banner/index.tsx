@@ -18,6 +18,9 @@ export function Banner() {
     { source: require("../../../Header/components/assets/miranha.jpg") },
     { source: require("../../../Header/components/assets/deadPool2.jpg") },
     { source: require("../../../Header/components/assets/jhonWilson4.jpg") },
+    { source: require("../../../Header/components/assets/miranha.jpg") },
+    { source: require("../../../Header/components/assets/deadPool2.jpg") },
+    { source: require("../../../Header/components/assets/jhonWilson4.jpg") },
   ]
 
   useEffect(() => {
