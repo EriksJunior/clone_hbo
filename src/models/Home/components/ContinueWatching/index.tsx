@@ -21,7 +21,7 @@ export function ContinueWatching() {
       end={{ x: 0, y: 0.85 }}
     >
       <View>
-        <Pressable style={{ flexDirection: "row", marginBottom: 10, marginTop: 15, marginHorizontal: 15, gap: 10, alignItems: "center" }} >
+        <Pressable style={{ flexDirection: "row", marginBottom: 10, marginTop: 15, marginHorizontal: 18, gap: 10, alignItems: "center" }} >
           <Text style={{ color: "white", fontWeight: "600" }}>
             Continue Assistindo
           </Text>
@@ -36,8 +36,8 @@ export function ContinueWatching() {
           pagingEnabled
         >
           {itens.map((item, index) =>
-            <Pressable style={{ marginLeft: 10 }} key={index}>
-              <Image source={item.source} style={{ width: 176, height: 176, resizeMode: "stretch" }} />
+            <Pressable style={{ marginLeft: 18 }} key={index}>
+              <Image source={item.source} style={{ width: 176, height: 180, resizeMode: "stretch" }} />
               <Text style={{ color: "#fffaf0c4", marginTop: 20, fontWeight: "600", width: width / 2.45 }}
               >
                 {item.title}

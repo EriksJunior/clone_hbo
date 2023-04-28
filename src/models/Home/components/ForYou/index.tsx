@@ -16,11 +16,11 @@ export function ForYou() {
   ]
 
   const { width } = Dimensions.get("window")
-  let teste = 40
+  let teste = 20
 
   return (
     <View>
-      <Pressable style={{ marginHorizontal: 15, marginBottom: 10 }} >
+      <Pressable style={{ marginHorizontal: 18, marginBottom: 10 }} >
         <Text style={{ color: "white", fontWeight: "600" }}>
           Apenas para você
         </Text>
@@ -29,13 +29,14 @@ export function ForYou() {
       <ScrollView showsHorizontalScrollIndicator={false}
         horizontal={true}
         scrollEventThrottle={16}
-        snapToAlignment="end"
-        // snapToOffsets={[...Array(itens.length)].map((_, i) => (i * 230-20) + (i-1) * teste++ )}
+        snapToAlignment="center"
+        // snapToOffsets={[...Array(itens.length)].map((_, i) => (i * 248 - 18) + (i-1) * teste++)}
         pagingEnabled
+        decelerationRate="fast"
       >
         {itens.map((item, index) =>
-          <Pressable style={{ marginLeft: 10}} key={index}>
-            <Image source={item.source} style={{ width: 250, height: 100, resizeMode: "stretch" }} />
+          <Pressable style={{marginLeft: 18}} key={index}>
+            <Image source={item.source} style={{ width: 248, height: 130, resizeMode: "stretch" }} />
           </Pressable>
         )}
       </ScrollView>
