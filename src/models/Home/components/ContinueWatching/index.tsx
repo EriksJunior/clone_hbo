@@ -34,6 +34,8 @@ export function ContinueWatching() {
           scrollEventThrottle={16}
           snapToAlignment="end"
           pagingEnabled
+          decelerationRate="fast"
+
         >
           {itens.map((item, index) =>
             <Pressable style={{ marginLeft: 18 }} key={index}>
@@ -45,7 +47,7 @@ export function ContinueWatching() {
             </Pressable>
           )}
 
-          <Pressable style={{ marginLeft: 15, marginRight: 15, width: 176, height: 176, backgroundColor: "#6464786e", justifyContent: "center", alignItems: "center" }}>
+          <Pressable style={{ marginHorizontal: 18, width: 176, height: 180, backgroundColor: "#6464786e", justifyContent: "center", alignItems: "center" }}>
             <View>
               <Text style={{ color: "#fffaf0ad", fontWeight: "bold" }}
               >

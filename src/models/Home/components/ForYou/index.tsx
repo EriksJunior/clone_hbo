@@ -15,9 +15,6 @@ export function ForYou() {
     { source: require("../../../Header/components/assets/miranha.jpg"), title: "Homem-Aranha de volta ao lar" },
   ]
 
-  const { width } = Dimensions.get("window")
-  let teste = 20
-
   return (
     <View>
       <Pressable style={{ marginHorizontal: 18, marginBottom: 10 }} >
@@ -35,8 +32,8 @@ export function ForYou() {
         decelerationRate="fast"
       >
         {itens.map((item, index) =>
-          <Pressable style={{marginLeft: 18}} key={index}>
-            <Image source={item.source} style={{ width: 248, height: 130, resizeMode: "stretch" }} />
+          <Pressable style={[{ marginLeft: 18 }, index === (itens.length -1) && {marginRight: 18}]} key={index}>
+            <Image source={item.source} style={[{ width: 248, height: 130, resizeMode: "stretch" }]} />
           </Pressable>
         )}
       </ScrollView>
