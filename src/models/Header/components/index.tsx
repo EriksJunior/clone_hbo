@@ -13,9 +13,9 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-export function Header() {
+export function Header({navigation}: any) {
   const { setSidebarActive } = useContext(SidebarContext) as { setSidebarActive: (value: boolean) => void }
-
+ 
   return (
     <Container>
       <Content>
@@ -36,7 +36,7 @@ export function Header() {
         </TouchableOpacity>
       </Content>
 
-      <TouchableOpacity activeOpacity={0.5}>
+      <TouchableOpacity activeOpacity={0.5} onPress={() => console.log('Inicio')}>
         <ContentUser>
           <Image source={require("./assets/avatarUser.png")} style={{ width: "100%", height: "100%", borderRadius: 50 }} />
         </ContentUser>

@@ -6,6 +6,8 @@ import { SMovies } from "../screens/Movies";
 import { SSeries } from "../screens/Series";
 import { SDownloads } from "../screens/Downloads";
 import { SSearch } from "../screens/Search";
+import { SProfile } from "../screens/Profile";
+import { StackRoutes } from "./stack.routes";
 
 const { Screen, Navigator } = createBottomTabNavigator();
 
@@ -28,7 +30,7 @@ export function TabRoutes() {
         component={SHome}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <AntDesign name="home" size={size} color={color}/>
+            <AntDesign name="home" size={size} color={color} />
           ),
           unmountOnBlur: true
         }}
@@ -38,7 +40,7 @@ export function TabRoutes() {
         component={SMovies}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <MaterialCommunityIcons name="movie-open-outline" size={size} color={color}/>
+            <MaterialCommunityIcons name="movie-open-outline" size={size} color={color} />
           )
         }}
       />
@@ -69,6 +71,15 @@ export function TabRoutes() {
           )
         }}
       />
+       {/* <Screen
+        name="Perfile"
+        component={StackRoutes}
+        options={{
+          tabBarIcon: () => (
+            null
+          ),
+        }}
+      /> */}
     </Navigator>
   )
 }
