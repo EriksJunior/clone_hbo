@@ -4,7 +4,7 @@ import { SidebarContext } from '../../Sidebar/context';
 import { TouchableOpacity, Image, Platform, UIManager, LayoutAnimation, Text } from "react-native"
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { Feather } from '@expo/vector-icons';
+import { Feather, Octicons } from '@expo/vector-icons';
 
 import { Container, Content, ContentUser, TextHeader } from "./styles";
 
@@ -24,15 +24,15 @@ export function Header() {
   return (
     <Container pathNameIsProfile={routePathName}>
       <Content>
-        <TouchableOpacity activeOpacity={0.5} >
-          <Feather name={routePathName === "Profile" ? "arrow-left" : "menu"} size={28} color={"white"} onPress={() => {
-            LayoutAnimation.configureNext({
-              duration: 90,
-              create: { type: "linear", property: "opacity" },
-            });
+        <TouchableOpacity activeOpacity={0.5} style={{ width: 35, height: 35, justifyContent: "center", alignItems: "center" }} onPress={() => {
+          LayoutAnimation.configureNext({
+            duration: 90,
+            create: { type: "linear", property: "opacity" },
+          });
 
-            routePathName === "Profile" ? navigate.navigate("Tabs") : setSidebarActive(true)
-          }} />
+          routePathName === "Profile" ? navigate.navigate("Tabs") : setSidebarActive(true)
+        }}>
+          <Octicons name={routePathName === "Profile" ? "arrow-left" : "three-bars"} size={routePathName === "Profile" ? 25 : 20} color={"white"} />
         </TouchableOpacity>
       </Content>
 
@@ -43,9 +43,13 @@ export function Header() {
       </TouchableOpacity>
 
       <TouchableOpacity activeOpacity={0.5} onPress={() => navigate.navigate("Profile")}>
-        <ContentUser>
-          <Image source={require("./assets/avatarUser.png")} style={{ width: "100%", height: "100%", borderRadius: 50 }} />
-        </ContentUser>
+        {routePathName !== "Profile" ?
+          <ContentUser>
+            <Image source={require("./assets/avatarUser.png")} style={{ width: "100%", height: "100%", borderRadius: 50 }} />
+          </ContentUser>
+          :
+          <Octicons name="gear" size={20} color="white" />
+        }
       </TouchableOpacity>
     </Container>
   );

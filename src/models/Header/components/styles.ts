@@ -15,7 +15,7 @@ export const Container = styled.View<IView>`
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
-  gap: ${props => props.pathNameIsProfile !== "Profile" ? "105px" : "140px"};
+  gap: ${props => props.pathNameIsProfile !== "Profile" ? "106px" : "140px"};
   background-color: transparent;
   position: absolute;
   z-index: 9999;
