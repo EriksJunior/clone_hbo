@@ -6,8 +6,6 @@ import { SMovies } from "../screens/Movies";
 import { SSeries } from "../screens/Series";
 import { SDownloads } from "../screens/Downloads";
 import { SSearch } from "../screens/Search";
-import { SProfile } from "../screens/Profile";
-import { StackRoutes } from "./stack.routes";
 
 const { Screen, Navigator } = createBottomTabNavigator();
 
@@ -71,15 +69,6 @@ export function TabRoutes() {
           )
         }}
       />
-       {/* <Screen
-        name="Perfile"
-        component={StackRoutes}
-        options={{
-          tabBarIcon: () => (
-            null
-          ),
-        }}
-      /> */}
     </Navigator>
   )
 }

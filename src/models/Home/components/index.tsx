@@ -15,17 +15,20 @@ export function Home() {
   ]
 
   return (
-    <Container>
-      <Banner />
+    <View style={{ flex: 1 }}>
+      <Container>
+        <Banner />
 
-      <View style={{ flexDirection: "column", gap: 30 }}>
-        <ImageScroll itens={itens} type="Continue Assistindo" viewMore={true} enableGradientFistItem={true} arrow={true} enableTitle={true} snapToAlignment="end"/>
-        <ImageScroll itens={itens} type="Apenas para você" widthItens={248} heightItens={130} enableMargin={true} snapToAlignment="center"/>
-        <ImageScroll itens={itens} type="Meus Favoritos" viewMore={true} arrow={true} enableTitle={true} snapToAlignment="end"/>
-        <Text style={{ color: "white" }}>Proximo Conteúdo</Text>
-        <Text style={{ color: "white" }}>Proximo Conteúdo</Text>
-        <Text style={{ color: "white" }}>Proximo Conteúdo</Text>
-      </View>
-    </Container>
+        <View style={{ flexDirection: "column", gap: 30 }}>
+          <ImageScroll itens={itens} type="Continue Assistindo" viewMore={true} enableGradientFistItem={true} arrow={true} enableTitle={true} snapToAlignment="end" />
+          <ImageScroll itens={itens} type="Apenas para você" widthItens={248} heightItens={130} enableMargin={true} snapToAlignment="center" />
+          <ImageScroll itens={itens} type="Meus Favoritos" viewMore={true} arrow={true} enableTitle={true} snapToAlignment="end" />
+          <Text style={{ color: "white" }}>Proximo Conteúdo</Text>
+          <Text style={{ color: "white" }}>Proximo Conteúdo</Text>
+          <Text style={{ color: "white" }}>Proximo Conteúdo</Text>
+        </View>
+      </Container>
+    </View>
+
   )
 }
