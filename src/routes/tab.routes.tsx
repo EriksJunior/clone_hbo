@@ -6,13 +6,16 @@ import { SMovies } from "../screens/Movies";
 import { SSeries } from "../screens/Series";
 import { SDownloads } from "../screens/Downloads";
 import { SSearch } from "../screens/Search";
+import { Header } from "../models/Header/components";
 
 const { Screen, Navigator } = createBottomTabNavigator();
 
 export function TabRoutes() {
   return (
     <Navigator screenOptions={{
-      headerShown: false,
+      header: () => {
+        return <Header />
+      },
       tabBarShowLabel: false,
       tabBarStyle: {
         backgroundColor: "#000000da",
@@ -30,7 +33,7 @@ export function TabRoutes() {
           tabBarIcon: ({ size, color }) => (
             <AntDesign name="home" size={size} color={color} />
           ),
-          unmountOnBlur: true
+          unmountOnBlur: true,
         }}
       />
       <Screen

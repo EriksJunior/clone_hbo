@@ -8,9 +8,10 @@ const { Screen, Navigator } = createNativeStackNavigator();
 export function StackRoutes() {
   return (
     <Navigator  screenOptions={{
-      header: () => {
-        return <Header />
-      }
+      headerShown: false,
+      // header: () => {
+      //   return <Header />
+      // }
     }}>
       <Screen
         name="Tabs"

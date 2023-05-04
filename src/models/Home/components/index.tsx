@@ -15,7 +15,6 @@ export function Home() {
   ]
 
   return (
-    <View style={{ flex: 1 }}>
       <Container>
         <Banner />
 
@@ -28,7 +27,5 @@ export function Home() {
           <Text style={{ color: "white" }}>Proximo Conteúdo</Text>
         </View>
       </Container>
-    </View>
-
   )
 }

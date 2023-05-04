@@ -18,7 +18,7 @@ export const Container = styled.View<IView>`
   gap: ${props => props.pathNameIsProfile !== "Profile" ? "105px" : "140px"};
   background-color: transparent;
   position: absolute;
-  z-index: 1;
+  z-index: 9999;
 `;
 
 export const Content = styled.View`
