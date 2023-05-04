@@ -5,20 +5,17 @@ import {
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 7 : 64;
 
-interface IView {
-  pathNameIsProfile: string
-}
 
-export const Container = styled.View<IView>`
+export const Container = styled.View`
   padding-top: ${statusBarHeight}px;
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
-  gap: ${props => props.pathNameIsProfile !== "Profile" ? "106px" : "140px"};
+  gap: 106px;
   background-color: transparent;
   position: absolute;
-  z-index: 9999;
+  z-index: 1;
 `;
 
 export const Content = styled.View`

@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { SidebarContext } from '../../Sidebar/context';
+import { ProfileContext } from '../../ModalProfile/context';
 
 import { TouchableOpacity, Image, Platform, UIManager, LayoutAnimation, Text } from "react-native"
-import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { Feather, Octicons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 
 import { Container, Content, ContentUser, TextHeader } from "./styles";
 
@@ -17,12 +17,9 @@ if (
 
 export function Header() {
   const { setSidebarActive } = useContext(SidebarContext) as { setSidebarActive: (value: boolean) => void }
-  const navigate: any = useNavigation()
-  const route = useRoute()
-  const routePathName = route.name
-
+  const { setModalProfileActice } = useContext(ProfileContext) as { setModalProfileActice: (value: boolean) => void }
   return (
-    <Container pathNameIsProfile={routePathName}>
+    <Container>
       <Content>
         <TouchableOpacity activeOpacity={0.5} style={{ width: 35, height: 35, justifyContent: "center", alignItems: "center" }} onPress={() => {
           LayoutAnimation.configureNext({
@@ -30,26 +27,20 @@ export function Header() {
             create: { type: "linear", property: "opacity" },
           });
 
-          routePathName === "Profile" ? navigate.navigate("Tabs") : setSidebarActive(true)
+          setSidebarActive(true)
         }}>
-          <Octicons name={routePathName === "Profile" ? "arrow-left" : "three-bars"} size={routePathName === "Profile" ? 25 : 20} color={"white"} />
+          <Octicons name={"three-bars"} size={20} color={"white"} />
         </TouchableOpacity>
       </Content>
 
       <TouchableOpacity activeOpacity={0.5}>
-        {routePathName !== "Profile" &&
-          <TextHeader>HBOMAX</TextHeader>
-        }
+        <TextHeader>HBOMAX</TextHeader>
       </TouchableOpacity>
 
-      <TouchableOpacity activeOpacity={0.5} onPress={() => navigate.navigate("Profile")}>
-        {routePathName !== "Profile" ?
-          <ContentUser>
-            <Image source={require("./assets/avatarUser.png")} style={{ width: "100%", height: "100%", borderRadius: 50 }} />
-          </ContentUser>
-          :
-          <Octicons name="gear" size={20} color="white" />
-        }
+      <TouchableOpacity activeOpacity={0.5} onPress={() => setModalProfileActice(true)}>
+        <ContentUser>
+          <Image source={require("./assets/avatarUser.png")} style={{ width: "100%", height: "100%", borderRadius: 50 }} />
+        </ContentUser>
       </TouchableOpacity>
     </Container>
   );
