@@ -1,9 +1,14 @@
-import { View, Text } from "react-native"
+
+
+
+import { TouchableOpacity } from "react-native"
+import { ContentProfile } from "./styles";
 
 export function Profile() {
+
   return (
-    <View>
-      <Text>Profile</Text>
-    </View>
+    <ContentProfile>
+  
+    </ContentProfile>
   )
 }

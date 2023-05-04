@@ -4,16 +4,16 @@ interface AuxProps {
   children: React.ReactNode,
 }
 
-export const ProfileContext = createContext({})
+export const ModalProfileContext = createContext({})
 
-function ProfileProvider({ children }: AuxProps) {
+function ModalProfileProvider({ children }: AuxProps) {
   const [modalProfileActice, setModalProfileActice] = useState(false)
 
   return (
-    <ProfileContext.Provider value={{ modalProfileActice, setModalProfileActice }}>
+    <ModalProfileContext.Provider value={{ modalProfileActice, setModalProfileActice }}>
       {children}
-    </ProfileContext.Provider>
+    </ModalProfileContext.Provider>
   )
 }
 
-export default ProfileProvider
+export default ModalProfileProvider

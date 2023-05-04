@@ -3,15 +3,15 @@ import { ModalProfile } from "../ModalProfile/components"
 import { Sidebar } from "../Sidebar/components"
 
 import SidebarProvider from "../Sidebar/context"
-import ProfileProvider from "../ModalProfile/context"
+import ModalProfileProvider from "../ModalProfile/context"
 
 export function HSP() {
   return (
     <SidebarProvider>
-      <ProfileProvider>
+      <ModalProfileProvider>
         <Header />
         <ModalProfile />
-      </ProfileProvider>
+      </ModalProfileProvider>
       <Sidebar />
     </SidebarProvider>
   )

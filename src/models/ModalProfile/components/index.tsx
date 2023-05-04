@@ -1,18 +1,18 @@
 import { useContext } from "react"
-import { ProfileContext } from "../context"
+import { ModalProfileContext } from "../context"
+import { HeaderProdile } from "./Header"
 import { Profile } from "./Profile"
-import { ContentGeneral, ContentProfile } from "./styles"
+import { ContentGeneral } from "./styles"
 
 export function ModalProfile() {
-  const { modalProfileActice } = useContext(ProfileContext) as { modalProfileActice: boolean }
+  const { modalProfileActice } = useContext(ModalProfileContext) as { modalProfileActice: boolean }
 
   return (
     <>
       {modalProfileActice &&
         <ContentGeneral isModalProfileActive={modalProfileActice}>
-          <ContentProfile>
-            <Profile />
-          </ContentProfile>
+          <HeaderProdile />
+          <Profile />
         </ContentGeneral>
       }
     </>

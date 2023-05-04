@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { SidebarContext } from '../../Sidebar/context';
-import { ProfileContext } from '../../ModalProfile/context';
+import { ModalProfileContext } from '../../ModalProfile/context';
 
 import { TouchableOpacity, Image, Platform, UIManager, LayoutAnimation, Text } from "react-native"
 
@@ -17,7 +17,7 @@ if (
 
 export function Header() {
   const { setSidebarActive } = useContext(SidebarContext) as { setSidebarActive: (value: boolean) => void }
-  const { setModalProfileActice } = useContext(ProfileContext) as { setModalProfileActice: (value: boolean) => void }
+  const { setModalProfileActice } = useContext(ModalProfileContext) as { setModalProfileActice: (value: boolean) => void }
   return (
     <Container>
       <Content>
