@@ -5,7 +5,6 @@ interface AuxProps {
   children: React.ReactNode,
 }
 
-
 export const SidebarContext = createContext({})
 
 function SidebarProvider({ children }: AuxProps) {

@@ -37,7 +37,14 @@ export function Header() {
         <TextHeader>HBOMAX</TextHeader>
       </TouchableOpacity>
 
-      <TouchableOpacity activeOpacity={0.5} onPress={() => setModalProfileActice(true)}>
+      <TouchableOpacity activeOpacity={0.5} onPress={() => {
+        LayoutAnimation.configureNext({
+          duration: 90,
+          create: { type: "linear", property: "opacity" },
+        });
+        
+        setModalProfileActice(true)
+      }}>
         <ContentUser>
           <Image source={require("./assets/avatarUser.png")} style={{ width: "100%", height: "100%", borderRadius: 50 }} />
         </ContentUser>

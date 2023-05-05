@@ -4,7 +4,6 @@ interface Props {
   marginTop?: string
 }
 
-
 export const ContentGeneral = styled.View<Props>`
   position: absolute;
   width: ${({ isModalProfileActive }) => isModalProfileActive ? "100%" : "100%"};

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SidebarContext } from "../../context";
 
-import { LayoutAnimation, Pressable, View } from "react-native"
+import { LayoutAnimation, Pressable, View, TouchableOpacity } from "react-native"
 import Animated from "react-native-reanimated"
 
 import { Feather } from '@expo/vector-icons';
@@ -51,7 +51,7 @@ export function ListPrincipalOptions() {
         <Title>Em Alta</Title>
       </Option>
 
-      <Pressable onPress={() => {
+      <TouchableOpacity activeOpacity={0.5} onPress={() => {
         setprincipalOptions(false),
           applyAnimated()
       }}>
@@ -63,7 +63,7 @@ export function ListPrincipalOptions() {
         </View>
 
         <Separate marginTop="20" />
-      </Pressable>
+      </TouchableOpacity>
     </Animated.View>
   )
 }

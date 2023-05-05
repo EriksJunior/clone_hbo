@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { ModalProfileContext } from "../context"
-import { HeaderProdile } from "./Header"
 import { Profile } from "./Profile"
 import { ContentGeneral } from "./styles"
 
@@ -11,7 +10,6 @@ export function ModalProfile() {
     <>
       {modalProfileActice &&
         <ContentGeneral isModalProfileActive={modalProfileActice}>
-          <HeaderProdile />
           <Profile />
         </ContentGeneral>
       }
