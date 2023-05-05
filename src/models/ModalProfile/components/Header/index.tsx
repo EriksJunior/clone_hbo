@@ -5,17 +5,16 @@ import { Octicons } from '@expo/vector-icons';
 import { ContentHeaderProfile, TouchableOpacityIcons } from "./styles";
 import { LayoutAnimation } from "react-native";
 
-export function HeaderProdile() {
-  const { setModalProfileActice } = useContext(ModalProfileContext) as { setModalProfileActice: (value: boolean) => void }
+export function HeaderProfile() {
+  const { setModalProfileActice } = useContext(ModalProfileContext) as { setModalProfileActice: (value: boolean) => void}
 
   return (
     <ContentHeaderProfile>
       <TouchableOpacityIcons activeOpacity={0.5} onPress={() => {
-        LayoutAnimation.configureNext({
-          duration: 190,
-          create: { type: "linear", property: "opacity" },
-        });
-
+         LayoutAnimation.configureNext({
+          duration: 90,
+          delete: { type: 'linear', property: 'opacity' },
+        }),
         setModalProfileActice(false)
       }}>
         <Octicons name="arrow-left" size={24} color={'white'} />

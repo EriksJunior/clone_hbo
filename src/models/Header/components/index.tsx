@@ -3,9 +3,7 @@ import { SidebarContext } from '../../Sidebar/context';
 import { ModalProfileContext } from '../../ModalProfile/context';
 
 import { TouchableOpacity, Image, Platform, UIManager, LayoutAnimation, Text } from "react-native"
-
 import { Octicons } from '@expo/vector-icons';
-
 import { Container, Content, ContentUser, TextHeader } from "./styles";
 
 if (
@@ -17,7 +15,8 @@ if (
 
 export function Header() {
   const { setSidebarActive } = useContext(SidebarContext) as { setSidebarActive: (value: boolean) => void }
-  const { setModalProfileActice } = useContext(ModalProfileContext) as { setModalProfileActice: (value: boolean) => void }
+  const { setModalProfileActice } = useContext(ModalProfileContext) as { setModalProfileActice: (value: boolean) => void}
+  
   return (
     <Container>
       <Content>
@@ -38,11 +37,10 @@ export function Header() {
       </TouchableOpacity>
 
       <TouchableOpacity activeOpacity={0.5} onPress={() => {
-        LayoutAnimation.configureNext({
-          duration: 90,
-          create: { type: "linear", property: "opacity" },
-        });
-        
+         LayoutAnimation.configureNext({
+          duration: 900,
+          delete: { type: 'linear', property: 'opacity' },
+        }),
         setModalProfileActice(true)
       }}>
         <ContentUser>

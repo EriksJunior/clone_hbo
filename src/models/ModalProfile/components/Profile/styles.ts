@@ -6,5 +6,5 @@ export const ContentProfile = styled.View`
   flex-direction: column;
   background-color: #1b1616;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
 `

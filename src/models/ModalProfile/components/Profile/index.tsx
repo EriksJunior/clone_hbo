@@ -1,10 +1,10 @@
-import { HeaderProdile } from "../Header";
+import { HeaderProfile } from "../Header";
 import { ContentProfile } from "./styles";
 
 export function Profile() {
   return (
     <ContentProfile>
-      <HeaderProdile />
+      <HeaderProfile />
     </ContentProfile>
   )
 }

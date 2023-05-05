@@ -11,7 +11,6 @@ export const ContentHeaderProfile = styled.View`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
 `
 
 export const TouchableOpacityIcons = styled.TouchableOpacity`
